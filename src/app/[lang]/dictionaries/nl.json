@@ -101,5 +101,15 @@
     ],
     "signoff": "Lorem Ipsum",
     "cta": "Bekijk de avonturen"
+  },
+  "footer": {
+    "tagline": "Tsippo vliegt de wereld rond, met zijn camera en rode rugzak. En jij mag mee!",
+    "exploreTitle": "Ontdekken",
+    "contactTitle": "Contact",
+    "email": "hallo@example.com",
+    "copyright": "© 2026 Lorem Ipsum. Alle rechten voorbehouden.",
+    "madeWith": "Gemaakt met liefde en een rode rugzak",
+    "backToTop": "Terug naar boven",
+    "credit": "Website gemaakt door Abdulrahman Sadek"
   }
 }

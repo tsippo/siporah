@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Caveat, Noto_Serif } from "next/font/google";
+import SiteFooter from "@/components/SiteFooter";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
 import "../globals.css";
 
@@ -39,10 +40,14 @@ export default async function RootLayout({
 }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
+  const t = await getDictionary(lang);
 
   return (
     <html lang={lang} className={`${serif.variable} ${hand.variable} antialiased`}>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <SiteFooter lang={lang} t={t.footer} nav={t.nav} />
+      </body>
     </html>
   );
 }
