@@ -6,7 +6,8 @@
   "nav": {
     "adventures": "The adventures",
     "about": "Who am I?",
-    "switchLabel": "Language"
+    "switchLabel": "Language",
+    "buy": "Buy the book"
   },
   "hero": {
     "titleTop": "Tsippo explores",
@@ -100,7 +101,8 @@
       }
     ],
     "signoff": "Lorem Ipsum",
-    "cta": "See the adventures"
+    "cta": "See the adventures",
+    "buy": "Buy the book"
   },
   "footer": {
     "tagline": "Tsippo flies around the world with his camera and red backpack. And you can come along!",
@@ -111,5 +113,29 @@
     "madeWith": "Made with love and a red backpack",
     "backToTop": "Back to top",
     "credit": "Website made by Abdulrahman Sadek"
-  }
+  },
+  "book": {
+    "eyebrow": "The book",
+    "title": "Climb aboard and come along!",
+    "text": "All of Tsippo's adventures in one cheerful picture book, full of colourful drawings from all over the world. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "coverTitle": "Tsippo explores the world",
+    "coverAuthor": "Lorem Ipsum",
+    "coverAlt": "Cover of the book Tsippo explores the world",
+    "pass": "Boarding pass",
+    "airline": "Tsippo Air",
+    "passengerLabel": "Passenger",
+    "passenger": "You!",
+    "fromLabel": "From",
+    "from": "Home",
+    "toLabel": "To",
+    "to": "The whole world",
+    "gateLabel": "Gate",
+    "gate": "Amazon",
+    "seatLabel": "Seat",
+    "seat": "On a lap",
+    "cta": "Buy the book",
+    "gift": "A lovely gift too!",
+    "newTab": "opens Amazon in a new tab"
+  },
+  "floatingBuy": "Buy the book!"
 }

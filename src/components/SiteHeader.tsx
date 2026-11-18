@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { locales, type Dictionary, type Locale } from "@/app/[lang]/dictionaries";
+import { BOOK } from "@/lib/book";
 
 type Props = {
   lang: Locale;
@@ -22,6 +23,14 @@ export default function SiteHeader({ lang, nav, path = "" }: Props) {
         >
           {nav.about}
         </Link>
+        <a
+          href={BOOK.url[lang]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-buy"
+        >
+          {nav.buy}
+        </a>
         <span className="lang-switch" aria-label={nav.switchLabel}>
           {locales.map((l) => (
             <Link

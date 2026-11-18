@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import FriendsAlbum from "@/components/FriendsAlbum";
 import SiteHeader from "@/components/SiteHeader";
+import BuyBook from "@/components/BuyBook";
 import { getDictionary, hasLocale } from "./dictionaries";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
@@ -60,6 +61,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     </main>
 
     <FriendsAlbum t={t.friends} />
+    <BuyBook lang={lang} t={t.book} />
     </>
   );
 }

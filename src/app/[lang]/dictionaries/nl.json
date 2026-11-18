@@ -6,7 +6,8 @@
   "nav": {
     "adventures": "De avonturen",
     "about": "Wie ben ik?",
-    "switchLabel": "Taal"
+    "switchLabel": "Taal",
+    "buy": "Koop het boek"
   },
   "hero": {
     "titleTop": "Tsippo ontdekt",
@@ -100,7 +101,8 @@
       }
     ],
     "signoff": "Lorem Ipsum",
-    "cta": "Bekijk de avonturen"
+    "cta": "Bekijk de avonturen",
+    "buy": "Koop het boek"
   },
   "footer": {
     "tagline": "Tsippo vliegt de wereld rond, met zijn camera en rode rugzak. En jij mag mee!",
@@ -111,5 +113,29 @@
     "madeWith": "Gemaakt met liefde en een rode rugzak",
     "backToTop": "Terug naar boven",
     "credit": "Website gemaakt door Abdulrahman Sadek"
-  }
+  },
+  "book": {
+    "eyebrow": "Het boek",
+    "title": "Stap in en reis mee!",
+    "text": "Alle avonturen van Tsippo in één vrolijk prentenboek, vol kleurrijke tekeningen van over de hele wereld. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "coverTitle": "Tsippo ontdekt de wereld",
+    "coverAuthor": "Lorem Ipsum",
+    "coverAlt": "Omslag van het boek Tsippo ontdekt de wereld",
+    "pass": "Instapkaart",
+    "airline": "Tsippo Air",
+    "passengerLabel": "Passagier",
+    "passenger": "Jij!",
+    "fromLabel": "Van",
+    "from": "Thuis",
+    "toLabel": "Naar",
+    "to": "De hele wereld",
+    "gateLabel": "Gate",
+    "gate": "Amazon",
+    "seatLabel": "Stoel",
+    "seat": "Op schoot",
+    "cta": "Koop het boek",
+    "gift": "Ook leuk als cadeau!",
+    "newTab": "opent Amazon in een nieuw tabblad"
+  },
+  "floatingBuy": "Koop het boek!"
 }

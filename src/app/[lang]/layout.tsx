@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Caveat, Noto_Serif } from "next/font/google";
 import SiteFooter from "@/components/SiteFooter";
+import FloatingBuy from "@/components/FloatingBuy";
+import { BOOK } from "@/lib/book";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
 import "../globals.css";
 
@@ -47,6 +49,7 @@ export default async function RootLayout({
       <body suppressHydrationWarning>
         {children}
         <SiteFooter lang={lang} t={t.footer} nav={t.nav} />
+        <FloatingBuy href={BOOK.url[lang]} label={t.floatingBuy} newTab={t.book.newTab} />
       </body>
     </html>
   );
