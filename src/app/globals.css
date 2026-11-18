@@ -951,3 +951,172 @@ body {
     gap: 22px;
   }
 }
+
+/* =====================================================================
+   Footer: the morning sky of the hero turns into an evening sky
+   ===================================================================== */
+.footer {
+  --dusk-top: #4a63b5;
+  --dusk: #2b3a78;
+  --night: #1d2657;
+  --moon: #ffd27a;
+  --cream: #fbf4e6;
+  --muted: #c3cdef;
+  position: relative;
+  z-index: 2;
+  padding: 96px 16px 28px;
+  color: var(--cream);
+  background:
+    radial-gradient(1.5px 1.5px at 12% 38%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 27% 22%, #fff 50%, transparent 51%),
+    radial-gradient(2px 2px at 44% 55%, #fff8 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 78% 62%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 91% 26%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 78%, #fff8 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 55% 84%, #fff8 50%, transparent 51%),
+    linear-gradient(180deg, var(--dusk-top) 0%, var(--dusk) 45%, var(--night) 100%);
+}
+/* soft hills along the top edge */
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -39px;
+  height: 40px;
+  background: var(--dusk-top);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V22C30 4 60 4 100 22S170 40 200 22v18z'/%3E%3C/svg%3E") 0 0 / 420px 40px repeat-x;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V22C30 4 60 4 100 22S170 40 200 22v18z'/%3E%3C/svg%3E") 0 0 / 420px 40px repeat-x;
+}
+/* the flock flies home for the night */
+.footer-flock {
+  position: absolute;
+  right: 6%;
+  top: -64px;
+  width: 210px;
+  height: auto;
+  animation: drift 9s ease-in-out infinite;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 1;
+  color: var(--cream);
+  text-decoration: none;
+}
+.footer-brand p {
+  max-width: 340px;
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-col h2 {
+  margin: 0 0 4px;
+  font-family: var(--hand);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--moon);
+}
+.footer a {
+  color: var(--cream);
+  text-decoration: none;
+}
+.footer-col a {
+  font-size: 16px;
+  font-weight: 700;
+}
+.footer-col a:hover,
+.footer-top:hover {
+  color: var(--moon);
+}
+.footer a:focus-visible {
+  outline: 2px solid var(--moon);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 28px;
+  max-width: 1120px;
+  margin: 56px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 14px;
+  color: var(--muted);
+}
+.footer-bottom p {
+  margin: 0;
+}
+.footer-made {
+  font-family: var(--hand);
+  font-size: 22px;
+  color: var(--cream);
+}
+.footer-top {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.footer-credit {
+  max-width: 1120px;
+  margin: 18px auto 0;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-flock {
+    animation: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .footer {
+    padding-top: 80px;
+  }
+  .footer-flock {
+    width: 150px;
+    top: -52px;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+  .footer-logo {
+    font-size: 38px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+  .footer-top {
+    margin-left: 0;
+  }
+}

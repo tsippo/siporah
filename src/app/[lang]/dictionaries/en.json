@@ -101,5 +101,15 @@
     ],
     "signoff": "Lorem Ipsum",
     "cta": "See the adventures"
+  },
+  "footer": {
+    "tagline": "Tsippo flies around the world with his camera and red backpack. And you can come along!",
+    "exploreTitle": "Explore",
+    "contactTitle": "Contact",
+    "email": "hallo@example.com",
+    "copyright": "© 2026 Lorem Ipsum. All rights reserved.",
+    "madeWith": "Made with love and a red backpack",
+    "backToTop": "Back to top",
+    "credit": "Website made by Abdulrahman Sadek"
   }
 }
