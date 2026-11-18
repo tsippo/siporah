@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Tsippo ontdekt de wereld",
+    "description": "Ga mee op avontuur met Tsippo: camera om, rode rugzak op, de wereld rond."
+  },
+  "nav": {
+    "adventures": "De avonturen",
+    "about": "Wie ben ik?",
+    "switchLabel": "Taal"
+  },
+  "hero": {
+    "titleTop": "Tsippo ontdekt",
+    "titleBottom": "de wereld",
+    "line1": "Camera om. Rode rugzak op.",
+    "line2": "Waar vliegen we vandaag naartoe?",
+    "cta": "Ontdek de avonturen",
+    "birdAlt": "Tsippo met rode rugzak en camera, zittend op een kompas",
+    "pigeonAlt": "Een postduif met een brief vliegt voorbij",
+    "worldAlt": "Een kleurrijke wereldkaart met Tsippo op skateboard, fiets, boot, bus, tram en scooter"
+  }
+}

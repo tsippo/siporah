@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+:root {
+  --sky: linear-gradient(
+    180deg,
+    #6d9ee6 0%,
+    #8eafec 23%,
+    #bebde3 39%,
+    #e5bdcc 51%,
+    #f3bdc0 60%,
+    #eec4ce 68%,
+    #e2d9ea 80%,
+    #e2d9ea 100%
+  );
+  --red: #c31c35;
+  --red-dark: #a3162c;
+  --ink: #3b2b2b;
+  --nav-ink: #4c3330;
+  --sans: Verdana, "DejaVu Sans", Geneva, sans-serif;
+  --serif: var(--font-tsippo), "DejaVu Serif", Georgia, serif;
+}
+
+body {
+  margin: 0;
+  background: #e2d9ea;
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+/* ---------- Hero: desktop scales from a 1536 × 1024 canvas ---------- */
+.hero {
+  --u: calc(100vw / 1536);
+  position: relative;
+  height: calc(1024 * var(--u));
+  overflow: hidden;
+  background: var(--sky);
+}
+
+.nav {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: calc(78 * var(--u));
+  right: calc(78 * var(--u));
+  height: calc(102 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: max(1px, calc(1.5 * var(--u))) solid rgba(255, 240, 240, 0.75);
+}
+
+.logo {
+  margin-left: calc(-3 * var(--u));
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: calc(51 * var(--u));
+  color: var(--red);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: calc(52 * var(--u));
+  margin-right: calc(28 * var(--u));
+  font-size: calc(21 * var(--u));
+  font-weight: 700;
+}
+
+.nav-links a {
+  color: var(--nav-ink);
+  text-decoration: none;
+}
+.nav-links > a:hover {
+  color: var(--red);
+}
+
+.lang-switch {
+  display: flex;
+  gap: calc(2 * var(--u));
+  padding: calc(3 * var(--u));
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+}
+.lang-switch a {
+  padding: calc(4 * var(--u)) calc(10 * var(--u));
+  border-radius: 999px;
+  font-size: calc(14 * var(--u));
+}
+.lang-switch a[aria-current] {
+  background: var(--red);
+  color: #fff;
+}
+
+.copy {
+  position: absolute;
+  z-index: 2;
+  top: calc(190 * var(--u));
+  left: calc(598 * var(--u));
+}
+
+.copy h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 800;
+  color: var(--red);
+  line-height: 1.05;
+}
+.title-top {
+  display: block;
+  font-size: calc(72 * var(--u));
+}
+.title-bottom {
+  display: block;
+  font-size: calc(98 * var(--u));
+}
+
+.copy p {
+  margin: calc(18 * var(--u)) 0 0 calc(6 * var(--u));
+  font-size: calc(22 * var(--u));
+  line-height: calc(38 * var(--u));
+  color: var(--ink);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+  margin-top: calc(28 * var(--u));
+  height: calc(62 * var(--u));
+  padding: 0 calc(27 * var(--u));
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: calc(19 * var(--u));
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 calc(4 * var(--u)) calc(14 * var(--u)) rgba(163, 22, 44, 0.25);
+  transition: background 0.2s, transform 0.2s;
+}
+.cta:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+}
+
+.art {
+  position: absolute;
+  height: auto;
+}
+.compass {
+  z-index: 2;
+  left: calc(110 * var(--u));
+  top: calc(205 * var(--u));
+  width: calc(365 * var(--u));
+}
+.pigeon {
+  z-index: 1;
+  left: calc(1290 * var(--u));
+  top: calc(130 * var(--u));
+  width: calc(172 * var(--u));
+  animation: float 6s ease-in-out infinite;
+}
+.world {
+  z-index: 1;
+  left: 0;
+  top: calc(530 * var(--u));
+  width: 100%;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(calc(-10 * var(--u)));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pigeon {
+    animation: none;
+  }
+}
+
+/* ---------- Phones: stack the hero ---------- */
+@media (max-width: 767px) {
+  .hero {
+    --u: 1px;
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+  }
+  .nav {
+    position: static;
+    margin: 0 16px;
+    height: 64px;
+  }
+  .logo {
+    margin: 0;
+    font-size: 30px;
+  }
+  .nav-links {
+    gap: 12px;
+    margin: 0;
+    font-size: 13px;
+  }
+  .nav-links > a:nth-child(2) {
+    display: none;
+  }
+  .lang-switch a {
+    font-size: 12px;
+  }
+  .copy {
+    position: static;
+    order: 1;
+    padding: 36px 16px 0;
+    text-align: center;
+  }
+  .title-top {
+    font-size: 38px;
+  }
+  .title-bottom {
+    font-size: 52px;
+  }
+  .copy p {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .cta {
+    margin-top: 22px;
+    height: 52px;
+    font-size: 16px;
+  }
+  .pigeon {
+    left: auto;
+    right: 16px;
+    top: 72px;
+    width: 72px;
+  }
+  .compass {
+    position: relative;
+    order: 2;
+    left: auto;
+    top: auto;
+    align-self: center;
+    width: 46vw;
+    margin: auto 0 -18vw; /* auto top pushes the art to the bottom */
+  }
+  .world {
+    position: relative;
+    order: 3;
+    top: auto;
+    /* show the middle of the globe larger instead of the whole strip */
+    width: 170%;
+    max-width: none;
+    margin-left: -35%;
+  }
+}
