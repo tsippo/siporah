@@ -1148,3 +1148,477 @@ body {
     max-width: 1440px;
   }
 }
+
+/* =====================================================================
+   Buying the book
+   ===================================================================== */
+
+/* ---------- buttons next to each other ---------- */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(14 * var(--u));
+  margin-top: calc(28 * var(--u));
+}
+.cta-row .cta {
+  margin-top: 0;
+}
+.cta-ghost {
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--red);
+  box-shadow: inset 0 0 0 calc(2.5 * var(--u)) var(--red);
+}
+.cta-ghost:hover {
+  background: #fff;
+  color: var(--red-dark);
+}
+.about-facts .cta-row {
+  --u: 1px;
+  justify-content: center;
+}
+
+/* ---------- menu button ---------- */
+.nav-links a.nav-buy {
+  padding: calc(8 * var(--u)) calc(18 * var(--u));
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 calc(3 * var(--u)) calc(10 * var(--u)) rgba(163, 22, 44, 0.25);
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-links a.nav-buy:hover {
+  background: var(--red-dark);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ---------- section ---------- */
+.buy {
+  position: relative;
+  padding: 40px 16px 150px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(150, 110, 60, 0.09) 1px, transparent 0) 0 0 / 22px 22px,
+    var(--paper);
+}
+.buy-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 72px;
+  align-items: center;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ---------- the book ---------- */
+.buy-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 520px;
+}
+.book {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: min(320px, 70vw);
+  aspect-ratio: 3 / 4;
+  border-radius: 4px 14px 14px 4px;
+  rotate: -4deg;
+  /* page edges peeking out on the right */
+  box-shadow:
+    5px 5px 0 #fffaf0, 6px 6px 0 #e7dcc6,
+    10px 10px 0 #fffaf0, 11px 11px 0 #e7dcc6,
+    18px 28px 40px rgba(60, 40, 20, 0.3);
+  transition: rotate 0.35s, scale 0.35s;
+}
+.book:hover {
+  rotate: -1deg;
+  scale: 1.03;
+}
+.book:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 8px;
+}
+.book-cover,
+.book-cover-img {
+  border-radius: inherit;
+}
+.book-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 26px 22px 18px 34px;
+  background: var(--sky);
+}
+/* the spine */
+.book-cover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 16px;
+  background: linear-gradient(90deg, #8e1426, var(--red) 60%, #e0475e);
+}
+.book-title {
+  position: relative;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.05;
+  text-align: center;
+  color: var(--red);
+}
+.book-art {
+  width: 72%;
+  height: auto;
+  margin-top: auto;
+  /* soften the square edges of the artwork into the cover */
+  -webkit-mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+  mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+}
+.book-author {
+  margin-top: 8px;
+  font-family: var(--hand);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.book-cover-img {
+  object-fit: cover;
+}
+.book-tsippo {
+  --tw: 96px;
+  position: absolute;
+  z-index: 3;
+  left: calc(50% + 64px);
+  /* stand on the top edge of the book (book is 3:4, centred in this box) */
+  top: calc(50% - min(320px, 70vw) * 2 / 3 - var(--tw) * 1.337 + 14px);
+  width: var(--tw);
+  height: auto;
+  rotate: 4deg;
+  pointer-events: none;
+}
+
+/* polaroid peeks fanned out behind the book */
+.buy-peek {
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  aspect-ratio: 1;
+  padding: 10px;
+  border: 8px solid #fff;
+  border-bottom-width: 26px;
+  box-shadow: 0 10px 22px rgba(60, 40, 20, 0.2);
+}
+.buy-peek img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.buy-peek-1 { left: 2%; top: 8%; rotate: -12deg; }
+.buy-peek-2 { left: 0; bottom: 4%; rotate: 8deg; }
+.buy-peek-3 { right: 0; bottom: 0; rotate: -6deg; }
+
+/* ---------- text ---------- */
+.buy-eyebrow {
+  margin: 0;
+  font-family: var(--hand);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--red);
+  rotate: -2deg;
+  width: max-content;
+}
+.buy h2 {
+  margin: 4px 0 16px;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.08;
+  color: var(--red);
+}
+.buy-text {
+  max-width: 520px;
+  margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+/* ---------- boarding pass ---------- */
+.pass {
+  --notch: 14px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  max-width: 560px;
+  filter: drop-shadow(0 14px 22px rgba(60, 40, 20, 0.2));
+}
+.pass-main,
+.pass-stub {
+  background: #fff;
+}
+/* round notches where the stub tears off */
+.pass-main {
+  border-radius: 16px 0 0 16px;
+  -webkit-mask: radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+    radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+  mask: radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+    radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+}
+.pass-stub {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 20px 18px;
+  border-left: 3px dashed #e3d6bd;
+  border-radius: 0 16px 16px 0;
+  -webkit-mask: radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+    radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+  mask: radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+    radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+}
+.pass-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 22px;
+  border-radius: 16px 0 0 0;
+  background: var(--red);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pass-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  margin: 0;
+  padding: 18px 22px 10px;
+}
+.pass-fields .pass-wide {
+  grid-column: 1 / -1;
+}
+.pass-fields dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a8a7a;
+}
+.pass-fields dd {
+  margin: 0;
+  font-family: var(--hand);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.pass-barcode {
+  display: block;
+  height: 30px;
+  margin: 6px 22px 18px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 2px, transparent 2px 5px,
+    var(--ink) 5px 6px, transparent 6px 9px,
+    var(--ink) 9px 12px, transparent 12px 14px
+  );
+  opacity: 0.75;
+}
+.pass-cta {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 120px;
+  padding: 18px 12px;
+  border-radius: 14px;
+  background: var(--red);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(163, 22, 44, 0.3);
+  transition: background 0.2s, transform 0.2s;
+}
+.pass-cta:hover {
+  background: var(--red-dark);
+  animation: tear 0.5s ease-in-out;
+}
+.pass-cta:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 4px;
+}
+@keyframes tear {
+  25% { transform: rotate(-3deg); }
+  50% { transform: rotate(2deg); }
+  75% { transform: rotate(-1deg); }
+}
+.pass-stamp {
+  position: absolute;
+  right: -26px;
+  top: -58px;
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  padding: 14px;
+  border: 3px solid var(--red);
+  border-radius: 50%;
+  outline: 2px dashed var(--red);
+  outline-offset: -10px;
+  background: rgba(255, 250, 240, 0.92);
+  color: var(--red);
+  font-family: var(--hand);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  rotate: 14deg;
+}
+
+/* ---------- floating stamp ---------- */
+.float-buy {
+  position: fixed;
+  z-index: 50;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 104px;
+  height: 104px;
+  padding: 12px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  outline: 2px dashed rgba(255, 255, 255, 0.75);
+  outline-offset: -9px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(120, 15, 30, 0.35);
+  opacity: 0;
+  translate: 0 30px;
+  scale: 0.7;
+  pointer-events: none;
+  transition: opacity 0.35s, translate 0.35s, scale 0.35s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+.float-buy.is-shown {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  pointer-events: auto;
+}
+.float-buy:hover {
+  background: var(--red-dark);
+  rotate: -8deg;
+}
+.float-buy:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+.float-buy-plane {
+  font-size: 20px;
+  line-height: 1;
+}
+.float-buy-text {
+  font-family: var(--hand);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pass-cta:hover {
+    animation: none;
+  }
+  .float-buy {
+    transition: opacity 0.2s;
+  }
+}
+
+/* ---------- phones & tablets ---------- */
+@media (max-width: 900px) {
+  .buy {
+    padding: 24px 16px 110px;
+  }
+  .buy-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .buy-visual {
+    min-height: 420px;
+  }
+  .buy-peek {
+    width: 110px;
+    border-width: 6px;
+    border-bottom-width: 20px;
+  }
+  .book-tsippo {
+    left: calc(50% + 60px);
+    --tw: 80px;
+  }
+}
+@media (max-width: 767px) {
+  .nav-links a.nav-buy {
+    display: none; /* the floating stamp takes over on phones */
+  }
+  .cta-row {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .book-title {
+    font-size: 24px;
+  }
+  .pass {
+    grid-template-columns: 1fr;
+  }
+  .pass-main {
+    border-radius: 16px 16px 0 0;
+    -webkit-mask: none;
+    mask: none;
+  }
+  .pass-head {
+    border-radius: 16px 16px 0 0;
+  }
+  .pass-stub {
+    border-left: 0;
+    border-top: 3px dashed #e3d6bd;
+    border-radius: 0 0 16px 16px;
+    -webkit-mask: none;
+    mask: none;
+  }
+  .pass-cta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    min-height: 0;
+  }
+  /* sit just above the pass so it never covers the header */
+  .pass-stamp {
+    right: 4px;
+    top: -98px;
+    width: 86px;
+    height: 86px;
+    font-size: 15px;
+  }
+  .float-buy {
+    right: 14px;
+    bottom: 14px;
+    width: 84px;
+    height: 84px;
+  }
+  .float-buy-text {
+    font-size: 16px;
+  }
+}
