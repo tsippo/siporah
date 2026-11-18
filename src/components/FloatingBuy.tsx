@@ -1,14 +1,18 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type Props = { href: string; label: string; newTab: string };
+type Props = { href: string; label: string };
 
 /**
  * A round "stamp" in the corner that appears once the visitor scrolls past
- * the top of the page, and steps aside while the book section is on screen.
+ * the top of the page. It links to the shop page, steps aside while the
+ * book section is on screen, and is not shown on the shop page itself.
  */
-export default function FloatingBuy({ href, label, newTab }: Props) {
+export default function FloatingBuy({ href, label }: Props) {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [bookVisible, setBookVisible] = useState(false);
 
@@ -27,17 +31,15 @@ export default function FloatingBuy({ href, label, newTab }: Props) {
       window.removeEventListener("scroll", onScroll);
       io?.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
+  if (pathname === href) return null;
   const show = scrolled && !bookVisible;
 
   return (
-    <a
+    <Link
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
       className={`float-buy${show ? " is-shown" : ""}`}
-      aria-label={`${label} (${newTab})`}
       tabIndex={show ? 0 : -1}
       aria-hidden={!show}
     >
@@ -45,6 +47,6 @@ export default function FloatingBuy({ href, label, newTab }: Props) {
         ✈
       </span>
       <span className="float-buy-text">{label}</span>
-    </a>
+    </Link>
   );
 }

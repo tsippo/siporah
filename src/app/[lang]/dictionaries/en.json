@@ -118,8 +118,6 @@
     "eyebrow": "The book",
     "title": "Climb aboard and come along!",
     "text": "All of Tsippo's adventures in one cheerful picture book, full of colourful drawings from all over the world. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "coverTitle": "Tsippo explores the world",
-    "coverAuthor": "Lorem Ipsum",
     "coverAlt": "Cover of the book Tsippo explores the world",
     "pass": "Boarding pass",
     "airline": "Tsippo Air",
@@ -137,5 +135,29 @@
     "gift": "A lovely gift too!",
     "newTab": "opens Amazon in a new tab"
   },
-  "floatingBuy": "Buy the book!"
+  "floatingBuy": "Buy the book!",
+  "shop": {
+    "metaTitle": "Buy the book | Tsippo",
+    "eyebrow": "The shop",
+    "title": "Choose your book",
+    "lead": "Tsippo's adventures come in Dutch and in English. Pick your language and climb aboard!",
+    "gift": "A lovely gift too!",
+    "newTab": "opens Amazon in a new tab",
+    "editions": {
+      "nl": {
+        "language": "Dutch",
+        "edition": "Dutch edition",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+        "cta": "Buy on Amazon.nl",
+        "coverAlt": "Cover of the Dutch edition"
+      },
+      "en": {
+        "language": "English",
+        "edition": "English edition",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+        "cta": "Buy on Amazon.com",
+        "coverAlt": "Cover of the English edition"
+      }
+    }
+  }
 }

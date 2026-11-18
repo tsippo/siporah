@@ -1,13 +1,28 @@
 import type { Locale } from "@/app/[lang]/dictionaries";
 
-// Everything about the book that is not translated text lives here.
-export const BOOK = {
-  // Swap these for the book's real Amazon page when it is live.
-  url: {
-    nl: "https://www.amazon.nl",
-    en: "https://www.amazon.com",
-  } satisfies Record<Locale, string>,
-  // Put the cover in public/images/ and set e.g. "/images/book-cover.jpg".
-  // While this is null, a drawn placeholder cover is shown.
-  cover: null as string | null,
+export type Edition = {
+  /** The book's Amazon page. Swap in the real product link when it is live. */
+  url: string;
+  /** Cover image in public/images/, e.g. "/images/book-cover-nl.jpg". null = drawn placeholder. */
+  cover: string | null;
+  /** Title as printed on this edition's cover. */
+  title: string;
+  author: string;
+};
+
+// One book per language. The shop page shows both; elsewhere on the site
+// the edition matching the page language is used.
+export const EDITIONS: Record<Locale, Edition> = {
+  nl: {
+    url: "https://www.amazon.nl",
+    cover: null,
+    title: "Tsippo ontdekt de wereld",
+    author: "Lorem Ipsum",
+  },
+  en: {
+    url: "https://www.amazon.com",
+    cover: null,
+    title: "Tsippo explores the world",
+    author: "Lorem Ipsum",
+  },
 };
