@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Tsippo explores the world",
+    "description": "Join Tsippo on an adventure: camera on, red backpack on, all around the world."
+  },
+  "nav": {
+    "adventures": "The adventures",
+    "about": "Who am I?",
+    "switchLabel": "Language"
+  },
+  "hero": {
+    "titleTop": "Tsippo explores",
+    "titleBottom": "the world",
+    "line1": "Camera on. Red backpack on.",
+    "line2": "Where are we flying today?",
+    "cta": "Discover the adventures",
+    "birdAlt": "Tsippo with a red backpack and camera, sitting on a compass",
+    "pigeonAlt": "A carrier pigeon flies past with a letter",
+    "worldAlt": "A colourful world map with Tsippo on a skateboard, bike, boat, bus, tram and scooter"
+  }
+}
