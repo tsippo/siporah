@@ -70,5 +70,36 @@
       }
     },
     "mapAlt": "Een geschilderde kaart van Europa met bekende gebouwen, zoals de Big Ben, de Eiffeltoren en het Colosseum"
+  },
+  "about": {
+    "metaTitle": "Wie ben ik? | Tsippo",
+    "eyebrow": "Wie ben ik?",
+    "title": "Hallo, ik ben Lorem Ipsum",
+    "lead": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ik schrijf en teken de avonturen van Tsippo.",
+    "photoPlaceholder": "Foto van de auteur",
+    "photoAlt": "Portret van de auteur",
+    "photoCaption": "Lorem ipsum, 2026",
+    "body": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris."
+    ],
+    "factsTitle": "Een paar dingen over mij",
+    "facts": [
+      {
+        "label": "Lorem ipsum",
+        "text": "Dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "label": "Dolor sit",
+        "text": "Sed do eiusmod tempor incididunt ut labore."
+      },
+      {
+        "label": "Amet elit",
+        "text": "Ut enim ad minim veniam, quis nostrud."
+      }
+    ],
+    "signoff": "Lorem Ipsum",
+    "cta": "Bekijk de avonturen"
   }
 }

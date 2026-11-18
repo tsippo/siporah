@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import FriendsAlbum from "@/components/FriendsAlbum";
-import { getDictionary, hasLocale, locales } from "./dictionaries";
+import SiteHeader from "@/components/SiteHeader";
+import { getDictionary, hasLocale } from "./dictionaries";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -12,27 +12,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
     <main className="hero">
-      <header className="nav">
-        <Link href={`/${lang}`} className="logo">
-          Tsippo
-        </Link>
-        <nav className="nav-links">
-          <a href="#avonturen">{t.nav.adventures}</a>
-          <a href="#wie-ben-ik">{t.nav.about}</a>
-          <span className="lang-switch" aria-label={t.nav.switchLabel}>
-            {locales.map((l) => (
-              <Link
-                key={l}
-                href={`/${l}`}
-                hrefLang={l}
-                aria-current={l === lang ? "true" : undefined}
-              >
-                {l.toUpperCase()}
-              </Link>
-            ))}
-          </span>
-        </nav>
-      </header>
+      <SiteHeader lang={lang} nav={t.nav} />
 
       <Image
         className="art pigeon"

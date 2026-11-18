@@ -70,5 +70,36 @@
       }
     },
     "mapAlt": "A painted map of Europe with famous buildings such as Big Ben, the Eiffel Tower and the Colosseum"
+  },
+  "about": {
+    "metaTitle": "Who am I? | Tsippo",
+    "eyebrow": "Who am I?",
+    "title": "Hello, I'm Lorem Ipsum",
+    "lead": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. I write and draw Tsippo's adventures.",
+    "photoPlaceholder": "Photo of the author",
+    "photoAlt": "Portrait of the author",
+    "photoCaption": "Lorem ipsum, 2026",
+    "body": [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris."
+    ],
+    "factsTitle": "A few things about me",
+    "facts": [
+      {
+        "label": "Lorem ipsum",
+        "text": "Dolor sit amet, consectetur adipiscing elit."
+      },
+      {
+        "label": "Dolor sit",
+        "text": "Sed do eiusmod tempor incididunt ut labore."
+      },
+      {
+        "label": "Amet elit",
+        "text": "Ut enim ad minim veniam, quis nostrud."
+      }
+    ],
+    "signoff": "Lorem Ipsum",
+    "cta": "See the adventures"
   }
 }
