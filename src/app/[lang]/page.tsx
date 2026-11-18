@@ -12,6 +12,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
     <main className="hero">
+      <div className="hero-canvas">
       <SiteHeader lang={lang} nav={t.nav} />
 
       <Image
@@ -52,9 +53,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         alt={t.hero.worldAlt}
         width={1536}
         height={494}
-        sizes="100vw"
+        sizes="(min-width: 1920px) 1920px, 100vw"
         loading="eager"
       />
+      </div>
     </main>
 
     <FriendsAlbum t={t.friends} />
