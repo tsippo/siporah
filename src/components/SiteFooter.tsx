@@ -13,6 +13,7 @@ export default function SiteFooter({ lang, t, nav }: Props) {
         alt=""
         width={1200}
         height={400}
+        sizes="(max-width: 820px) 150px, 210px"
       />
 
       <div className="footer-inner">
