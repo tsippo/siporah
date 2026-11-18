@@ -159,5 +159,13 @@
         "coverAlt": "Omslag van de Engelse uitgave"
       }
     }
+  },
+  "notFound": {
+    "metaTitle": "Pagina niet gevonden | Tsippo",
+    "code": "404",
+    "title": "Oeps, Tsippo is verdwaald!",
+    "text": "Deze pagina bestaat niet (meer). Misschien is hij weggevlogen? Kom, we vliegen samen terug.",
+    "home": "Terug naar huis",
+    "adventures": "Bekijk de avonturen"
   }
 }

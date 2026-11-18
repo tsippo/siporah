@@ -159,5 +159,13 @@
         "coverAlt": "Cover of the English edition"
       }
     }
+  },
+  "notFound": {
+    "metaTitle": "Page not found | Tsippo",
+    "code": "404",
+    "title": "Oops, Tsippo got lost!",
+    "text": "This page doesn't exist (anymore). Maybe it flew away? Come on, let's fly back together.",
+    "home": "Back home",
+    "adventures": "See the adventures"
   }
 }

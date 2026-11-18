@@ -69,6 +69,7 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
           alt=""
           width={1200}
           height={400}
+          sizes="(max-width: 820px) 200px, 260px"
         />
       </div>
 

@@ -16,7 +16,7 @@
   --red-dark: #a3162c;
   --ink: #3b2b2b;
   --nav-ink: #4c3330;
-  --sans: Verdana, "DejaVu Sans", Geneva, sans-serif;
+  --sans: var(--font-body), Verdana, "DejaVu Sans", Geneva, sans-serif;
   --serif: var(--font-tsippo), "DejaVu Serif", Georgia, serif;
 }
 
@@ -79,7 +79,7 @@ body {
   align-items: center;
   gap: calc(52 * var(--u));
   margin-right: calc(28 * var(--u));
-  font-size: calc(21 * var(--u));
+  font-size: max(calc(21 * var(--u)), 14px);
   font-weight: 700;
 }
 
@@ -133,8 +133,8 @@ body {
 
 .copy p {
   margin: calc(18 * var(--u)) 0 0 calc(6 * var(--u));
-  font-size: calc(22 * var(--u));
-  line-height: calc(38 * var(--u));
+  font-size: max(calc(22 * var(--u)), 15px);
+  line-height: max(calc(38 * var(--u)), 25px);
   color: var(--ink);
 }
 
@@ -165,15 +165,15 @@ body {
 }
 .compass {
   z-index: 2;
-  left: calc(110 * var(--u));
-  top: calc(205 * var(--u));
-  width: calc(365 * var(--u));
+  left: calc(118 * var(--u));
+  top: calc(212 * var(--u));
+  width: calc(348 * var(--u));
 }
 .pigeon {
   z-index: 1;
-  left: calc(1290 * var(--u));
-  top: calc(130 * var(--u));
-  width: calc(172 * var(--u));
+  left: calc(1303 * var(--u));
+  top: calc(140 * var(--u));
+  width: calc(149 * var(--u));
   animation: float 6s ease-in-out infinite;
 }
 .world {
@@ -194,8 +194,8 @@ body {
   }
 }
 
-/* ---------- Phones: stack the hero ---------- */
-@media (max-width: 767px) {
+/* ---------- Phones and upright tablets: stack the hero ---------- */
+@media (max-width: 900px) {
   .hero {
     --u: 1px;
     height: auto;
@@ -215,16 +215,12 @@ body {
   }
   .logo {
     margin: 0;
-    font-size: 26px;
+    font-size: clamp(26px, 4.4vw, 36px);
   }
   .nav-links {
-    gap: 12px;
+    gap: clamp(10px, 2.4vw, 22px);
     margin: 0;
-    font-size: 13px;
-  }
-  .nav-links {
-    font-size: 12px;
-    gap: 10px;
+    font-size: clamp(12px, 1.9vw, 15px);
     white-space: nowrap;
   }
   .lang-switch a {
@@ -233,30 +229,30 @@ body {
   .copy {
     position: static;
     order: 1;
-    padding: 36px 16px 0;
+    padding: clamp(36px, 6vw, 64px) 16px 0;
     text-align: center;
   }
   .title-top {
-    font-size: 38px;
+    font-size: clamp(38px, 7vw, 60px);
   }
   .title-bottom {
-    font-size: 52px;
+    font-size: clamp(52px, 9.6vw, 82px);
   }
   .copy p {
     margin: 16px 0 0;
-    font-size: 16px;
-    line-height: 28px;
+    font-size: clamp(16px, 2.3vw, 20px);
+    line-height: 1.75;
   }
   .cta {
     margin-top: 22px;
-    height: 52px;
-    font-size: 16px;
+    height: clamp(52px, 7vw, 60px);
+    font-size: clamp(16px, 2.2vw, 19px);
   }
   .pigeon {
     left: auto;
     right: 16px;
     top: 72px;
-    width: 72px;
+    width: clamp(72px, 12vw, 120px);
   }
   .compass {
     position: relative;
@@ -264,8 +260,9 @@ body {
     left: auto;
     top: auto;
     align-self: center;
-    width: 46vw;
-    margin: auto 0 -18vw; /* auto top pushes the art to the bottom */
+    width: min(46vw, 330px);
+    /* auto top pushes the art to the bottom; it rests just above the vehicles */
+    margin: auto 0 -2vw;
   }
   .world {
     position: relative;
@@ -1282,9 +1279,6 @@ body {
   width: 72%;
   height: auto;
   margin-top: auto;
-  /* soften the square edges of the artwork into the cover */
-  -webkit-mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
-  mask: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
 }
 .book-author {
   margin-top: 8px;
@@ -1415,7 +1409,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #9a8a7a;
+  color: #6f5f50;
 }
 .pass-fields dd {
   margin: 0;
@@ -1800,5 +1794,90 @@ body {
   }
   .shop-gift {
     font-size: 24px;
+  }
+}
+
+/* =====================================================================
+   Not-found page: Tsippo got lost
+   ===================================================================== */
+.lost {
+  --u: 1px;
+  max-width: 720px;
+  margin: -70px auto 0;
+  padding: 0 16px 140px;
+  text-align: center;
+}
+.lost-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 300px;
+}
+.lost-code {
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 220px;
+  line-height: 1;
+  color: rgba(195, 28, 53, 0.12);
+}
+.lost-tsippo {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 150px;
+  height: auto;
+  translate: -50% 0;
+  animation: lost-look 4s ease-in-out infinite;
+}
+.lost-q {
+  position: absolute;
+  font-family: var(--hand);
+  font-weight: 700;
+  color: var(--red);
+  animation: bob 2.6s ease-in-out infinite;
+}
+.lost-q1 { left: calc(50% + 70px); top: 40px; font-size: 54px; rotate: 12deg; }
+.lost-q2 { left: calc(50% + 110px); top: 90px; font-size: 36px; rotate: 22deg; animation-delay: -1.2s; }
+@keyframes lost-look {
+  0%, 40%, 100% { transform: scaleX(1); }
+  50%, 90% { transform: scaleX(-1); }
+}
+.lost h1 {
+  margin: 12px 0 14px;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.1;
+  color: var(--red);
+}
+.lost p {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.lost-actions {
+  justify-content: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lost-tsippo,
+  .lost-q {
+    animation: none;
+  }
+}
+@media (max-width: 820px) {
+  .lost {
+    margin-top: -30px;
+    padding-bottom: 90px;
+  }
+  .lost-art {
+    height: 230px;
+  }
+  .lost-code {
+    font-size: 160px;
+  }
+  .lost-tsippo {
+    width: 116px;
   }
 }
