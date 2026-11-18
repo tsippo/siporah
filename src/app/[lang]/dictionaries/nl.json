@@ -118,8 +118,6 @@
     "eyebrow": "Het boek",
     "title": "Stap in en reis mee!",
     "text": "Alle avonturen van Tsippo in één vrolijk prentenboek, vol kleurrijke tekeningen van over de hele wereld. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "coverTitle": "Tsippo ontdekt de wereld",
-    "coverAuthor": "Lorem Ipsum",
     "coverAlt": "Omslag van het boek Tsippo ontdekt de wereld",
     "pass": "Instapkaart",
     "airline": "Tsippo Air",
@@ -137,5 +135,29 @@
     "gift": "Ook leuk als cadeau!",
     "newTab": "opent Amazon in een nieuw tabblad"
   },
-  "floatingBuy": "Koop het boek!"
+  "floatingBuy": "Koop het boek!",
+  "shop": {
+    "metaTitle": "Koop het boek | Tsippo",
+    "eyebrow": "De winkel",
+    "title": "Kies jouw boek",
+    "lead": "De avonturen van Tsippo zijn er in het Nederlands en in het Engels. Kies je taal en stap in!",
+    "gift": "Ook leuk als cadeau!",
+    "newTab": "opent Amazon in een nieuw tabblad",
+    "editions": {
+      "nl": {
+        "language": "Nederlands",
+        "edition": "Nederlandse uitgave",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+        "cta": "Koop op Amazon.nl",
+        "coverAlt": "Omslag van de Nederlandse uitgave"
+      },
+      "en": {
+        "language": "Engels",
+        "edition": "Engelse uitgave",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
+        "cta": "Koop op Amazon.com",
+        "coverAlt": "Omslag van de Engelse uitgave"
+      }
+    }
+  }
 }

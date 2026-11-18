@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Dictionary, Locale } from "@/app/[lang]/dictionaries";
-import { BOOK } from "@/lib/book";
+import { EDITIONS } from "@/lib/book";
+import BookCover from "./BookCover";
 
 type Props = { lang: Locale; t: Dictionary["book"] };
 
@@ -12,7 +13,8 @@ const peeks = [
 ];
 
 export default function BuyBook({ lang, t }: Props) {
-  const href = BOOK.url[lang];
+  const edition = EDITIONS[lang];
+  const href = edition.url;
 
   return (
     <section id="boek" className="buy">
@@ -24,24 +26,7 @@ export default function BuyBook({ lang, t }: Props) {
             </span>
           ))}
 
-          <a href={href} target="_blank" rel="noopener noreferrer" className="book" aria-label={`${t.cta} (${t.newTab})`}>
-            {BOOK.cover ? (
-              <Image src={BOOK.cover} alt={t.coverAlt} fill sizes="320px" className="book-cover-img" />
-            ) : (
-              <span className="book-cover">
-                <span className="book-title">{t.coverTitle}</span>
-                <Image
-                  className="book-art"
-                  src="/images/tsippo-compass.png"
-                  alt=""
-                  width={365}
-                  height={485}
-                  sizes="200px"
-                />
-                <span className="book-author">{t.coverAuthor}</span>
-              </span>
-            )}
-          </a>
+          <BookCover edition={edition} label={`${t.cta} (${t.newTab})`} coverAlt={t.coverAlt} />
 
           <Image
             className="book-tsippo"

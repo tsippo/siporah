@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
-import { BOOK } from "@/lib/book";
 import { getDictionary, hasLocale } from "../dictionaries";
 
 // Put the author's photo in public/images/ and set its path here,
@@ -100,14 +99,9 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
             <Link href={`/${lang}#avonturen`} className="cta">
             {a.cta} <span aria-hidden="true">→</span>
           </Link>
-            <a
-              href={BOOK.url[lang]}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta cta-ghost"
-            >
+            <Link href={`/${lang}/shop`} className="cta cta-ghost">
               {a.buy}
-            </a>
+            </Link>
           </div>
         </section>
       </main>
