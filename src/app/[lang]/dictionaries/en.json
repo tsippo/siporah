@@ -17,5 +17,58 @@
     "birdAlt": "Tsippo with a red backpack and camera, sitting on a compass",
     "pigeonAlt": "A carrier pigeon flies past with a letter",
     "worldAlt": "A colourful world map with Tsippo on a skateboard, bike, boat, bus, tram and scooter"
+  },
+  "friends": {
+    "eyebrow": "Tsippo's photo album",
+    "title": "A new friend everywhere",
+    "intro": "Wherever Tsippo lands, he always takes a photo. And usually makes a new friend too! Tap a photo to read his postcard.",
+    "hint": "Tap a photo!",
+    "flipHint": "Turn over",
+    "signoff": "Love, Tsippo",
+    "items": {
+      "london": {
+        "caption": "London",
+        "greeting": "Greetings from London!",
+        "text": "From the top of the red double-decker I can see all of London. Look, there's Big Ben!",
+        "alt": "Tsippo and a boy on top of a red London double-decker bus"
+      },
+      "amsterdam": {
+        "caption": "Amsterdam, with Mike",
+        "greeting": "Greetings from Amsterdam!",
+        "text": "At first Mike the cat didn't want to come. But now he thinks cycling along the canals is quite fun!",
+        "alt": "Tsippo rides a blue bicycle with Mike the cat in the basket"
+      },
+      "norway": {
+        "caption": "Norway",
+        "greeting": "Greetings from Norway!",
+        "text": "I'm sailing the fjords with a real Viking. What big waves!",
+        "alt": "Tsippo and a Viking on a ship with a dragon head"
+      },
+      "vienna": {
+        "caption": "Vienna, with Leopold",
+        "greeting": "Greetings from Vienna!",
+        "text": "Leopold sings the whole ride through Vienna. I just sing along: tra-la-la!",
+        "alt": "Tsippo and Leopold singing on the box of a horse-drawn carriage"
+      },
+      "rome": {
+        "caption": "Rome, with Matteo",
+        "greeting": "Greetings from Rome!",
+        "text": "Helmets on, off we go! I zoom past the Colosseum on Matteo's Vespa.",
+        "alt": "Tsippo and Matteo wearing helmets on a red Vespa"
+      },
+      "spain": {
+        "caption": "Spain, with Carmen",
+        "greeting": "Greetings from Spain!",
+        "text": "Carmen is teaching me flamenco. Clap, clap, twirl… oops, my backpack!",
+        "alt": "Tsippo dances flamenco with Carmen in a red dress"
+      },
+      "skater": {
+        "caption": "Somewhere on the way",
+        "greeting": "Greetings from the road!",
+        "text": "Where are we? No idea! But skateboarding with my friend is super fast.",
+        "alt": "Tsippo and a girl with braids riding a skateboard together"
+      }
+    },
+    "mapAlt": "A painted map of Europe with famous buildings such as Big Ben, the Eiffel Tower and the Colosseum"
   }
 }

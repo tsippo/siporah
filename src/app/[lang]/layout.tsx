@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Noto_Serif } from "next/font/google";
+import { Caveat, Noto_Serif } from "next/font/google";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
 import "../globals.css";
 
@@ -8,6 +8,12 @@ const serif = Noto_Serif({
   variable: "--font-tsippo",
   subsets: ["latin"],
   weight: ["700", "800"],
+});
+
+const hand = Caveat({
+  variable: "--font-hand",
+  subsets: ["latin"],
+  weight: ["500", "700"],
 });
 
 export async function generateStaticParams() {
@@ -35,7 +41,7 @@ export default async function RootLayout({
   if (!hasLocale(lang)) notFound();
 
   return (
-    <html lang={lang} className={`${serif.variable} antialiased`}>
+    <html lang={lang} className={`${serif.variable} ${hand.variable} antialiased`}>
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

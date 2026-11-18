@@ -17,5 +17,58 @@
     "birdAlt": "Tsippo met rode rugzak en camera, zittend op een kompas",
     "pigeonAlt": "Een postduif met een brief vliegt voorbij",
     "worldAlt": "Een kleurrijke wereldkaart met Tsippo op skateboard, fiets, boot, bus, tram en scooter"
+  },
+  "friends": {
+    "eyebrow": "Tsippo's fotoalbum",
+    "title": "Overal een nieuwe vriend",
+    "intro": "Waar Tsippo ook landt, hij maakt altijd een foto. En meestal ook een nieuwe vriend! Tik op een foto en lees zijn ansichtkaart.",
+    "hint": "Tik op een foto!",
+    "flipHint": "Draai om",
+    "signoff": "Liefs, Tsippo",
+    "items": {
+      "london": {
+        "caption": "Londen",
+        "greeting": "Groetjes uit Londen!",
+        "text": "Boven op de rode dubbeldekker zie ik héél Londen. Kijk, daar staat de Big Ben!",
+        "alt": "Tsippo en een jongen boven op een rode Londense dubbeldekker"
+      },
+      "amsterdam": {
+        "caption": "Amsterdam, met Mike",
+        "greeting": "Groetjes uit Amsterdam!",
+        "text": "Mike de kat wilde eerst niet mee. Maar fietsen langs de grachten vindt hij nu toch wel leuk!",
+        "alt": "Tsippo fietst op een blauwe fiets met Mike de kat in het mandje"
+      },
+      "norway": {
+        "caption": "Noorwegen",
+        "greeting": "Groetjes uit Noorwegen!",
+        "text": "Ik vaar met een echte Viking door de fjorden. Wat een golven!",
+        "alt": "Tsippo en een Viking op een schip met een drakenkop"
+      },
+      "vienna": {
+        "caption": "Wenen, met Leopold",
+        "greeting": "Groetjes uit Wenen!",
+        "text": "Leopold zingt de hele rit door Wenen. Ik zing gewoon mee: tra-la-la!",
+        "alt": "Tsippo en Leopold zingen op de bok van een paardenkoets"
+      },
+      "rome": {
+        "caption": "Rome, met Matteo",
+        "greeting": "Groetjes uit Rome!",
+        "text": "Helm op en gaan! Met Matteo zoef ik op de Vespa langs het Colosseum.",
+        "alt": "Tsippo en Matteo met helmen op een rode Vespa"
+      },
+      "spain": {
+        "caption": "Spanje, met Carmen",
+        "greeting": "Groetjes uit Spanje!",
+        "text": "Carmen leert me flamenco dansen. Klap, klap, draai… oeps, mijn rugzak!",
+        "alt": "Tsippo danst flamenco met Carmen in een rode jurk"
+      },
+      "skater": {
+        "caption": "Ergens onderweg",
+        "greeting": "Groetjes van onderweg!",
+        "text": "Waar we zijn? Geen idee! Maar skateboarden met mijn vriendin gaat supersnel.",
+        "alt": "Tsippo en een meisje met vlechten samen op een skateboard"
+      }
+    },
+    "mapAlt": "Een geschilderde kaart van Europa met bekende gebouwen, zoals de Big Ben, de Eiffeltoren en het Colosseum"
   }
 }

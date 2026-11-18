@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import FriendsAlbum from "@/components/FriendsAlbum";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
@@ -9,6 +10,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const t = await getDictionary(lang);
 
   return (
+    <>
     <main className="hero">
       <header className="nav">
         <Link href={`/${lang}`} className="logo">
@@ -74,5 +76,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         loading="eager"
       />
     </main>
+
+    <FriendsAlbum t={t.friends} />
+    </>
   );
 }
