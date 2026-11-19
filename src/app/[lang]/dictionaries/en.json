@@ -133,7 +133,9 @@
     "seat": "On a lap",
     "cta": "Buy the book",
     "gift": "A lovely gift too!",
-    "newTab": "opens Amazon in a new tab"
+    "newTab": "opens Amazon in a new tab",
+    "bonVoyage": "Have a great trip!",
+    "opening": "Opening Amazon…"
   },
   "floatingBuy": "Buy the book!",
   "shop": {
@@ -167,5 +169,6 @@
     "text": "This page doesn't exist (anymore). Maybe it flew away? Come on, let's fly back together.",
     "home": "Back home",
     "adventures": "See the adventures"
-  }
+  },
+  "splash": "Packing my backpack…"
 }

@@ -133,7 +133,9 @@
     "seat": "Op schoot",
     "cta": "Koop het boek",
     "gift": "Ook leuk als cadeau!",
-    "newTab": "opent Amazon in een nieuw tabblad"
+    "newTab": "opent Amazon in een nieuw tabblad",
+    "bonVoyage": "Goede reis!",
+    "opening": "Amazon wordt geopend…"
   },
   "floatingBuy": "Koop het boek!",
   "shop": {
@@ -167,5 +169,6 @@
     "text": "Deze pagina bestaat niet (meer). Misschien is hij weggevlogen? Kom, we vliegen samen terug.",
     "home": "Terug naar huis",
     "adventures": "Bekijk de avonturen"
-  }
+  },
+  "splash": "Even de rugzak inpakken…"
 }

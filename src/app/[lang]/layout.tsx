@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { Caveat, Noto_Sans, Noto_Serif } from "next/font/google";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingBuy from "@/components/FloatingBuy";
+import Splash from "@/components/Splash";
+import { SPLASH_KEY } from "@/lib/splash";
 import { getDictionary, hasLocale, locales } from "./dictionaries";
 import { SITE_URL } from "@/lib/site";
 import "../globals.css";
@@ -70,8 +72,21 @@ export default async function RootLayout({
   const t = await getDictionary(lang);
 
   return (
-    <html lang={lang} className={`${serif.variable} ${hand.variable} ${sans.variable} antialiased`}>
+    <html
+      lang={lang}
+      className={`${serif.variable} ${hand.variable} ${sans.variable} antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* skip the loading screen before first paint if it was already shown this visit */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("${SPLASH_KEY}"))document.documentElement.classList.add("splash-skip")}catch(e){}`,
+          }}
+        />
+      </head>
       <body suppressHydrationWarning>
+        <Splash text={t.splash} />
         {children}
         <SiteFooter lang={lang} t={t.footer} nav={t.nav} />
         <FloatingBuy href={`/${lang}/shop`} label={t.floatingBuy} />

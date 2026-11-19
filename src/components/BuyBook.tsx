@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Dictionary, Locale } from "@/app/[lang]/dictionaries";
 import { EDITIONS } from "@/lib/book";
 import BookCover from "./BookCover";
+import TicketStub from "./TicketStub";
 
 type Props = { lang: Locale; t: Dictionary["book"] };
 
@@ -73,12 +74,13 @@ export default function BuyBook({ lang, t }: Props) {
               <span className="pass-barcode" aria-hidden="true" />
             </div>
 
-            <div className="pass-stub">
-              <a href={href} target="_blank" rel="noopener noreferrer" className="pass-cta">
-                {t.cta} <span aria-hidden="true">→</span>
-                <span className="sr-only"> ({t.newTab})</span>
-              </a>
-            </div>
+            <TicketStub
+              href={href}
+              label={t.cta}
+              newTab={t.newTab}
+              bonVoyage={t.bonVoyage}
+              opening={t.opening}
+            />
 
             <span className="pass-stamp" aria-hidden="true">
               {t.gift}
