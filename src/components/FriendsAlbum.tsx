@@ -27,8 +27,16 @@ export type FriendsText = {
 
 const route = flightPath();
 
+// Flying Tsippo on the route, in stage units
+const BIRD_W = 128;
+const BIRD_H = (BIRD_W * 300) / 360;
+const LEG_SECONDS = 15; // one trip along the route; then he flies back
+const START_DELAY_MS = 3400; // wait until the route has drawn itself
+
 export default function FriendsAlbum({ t }: { t: FriendsText }) {
   const stageRef = useRef<HTMLDivElement>(null);
+  const routeRef = useRef<SVGPathElement>(null);
+  const birdRef = useRef<SVGGElement>(null);
   const [inView, setInView] = useState(false);
   const [flipped, setFlipped] = useState<FriendId | null>(null);
 
@@ -48,6 +56,65 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  // Tsippo flies the route, turns around at the end and flies back.
+  // Only runs while the map is on screen.
+  useEffect(() => {
+    const path = routeRef.current;
+    const bird = birdRef.current;
+    const stage = stageRef.current;
+    if (!inView || !path || !bird || !stage) return;
+
+    const len = path.getTotalLength();
+    const place = (dist: number, forward: boolean, bob: number) => {
+      const p = path.getPointAtLength(dist);
+      const q = path.getPointAtLength(Math.min(len, Math.max(0, dist + (forward ? 6 : -6))));
+      const goingLeft = q.x < p.x;
+      let angle = (Math.atan2(q.y - p.y, q.x - p.x) * 180) / Math.PI;
+      if (goingLeft) angle -= 180;
+      angle = ((angle + 540) % 360) - 180;
+      const tilt = Math.max(-24, Math.min(24, angle));
+      bird.setAttribute(
+        "transform",
+        `translate(${p.x.toFixed(1)} ${(p.y + bob).toFixed(1)}) rotate(${tilt.toFixed(1)}) scale(${goingLeft ? -1 : 1} 1)`,
+      );
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      place(0, true, 0);
+      bird.classList.add("is-flying");
+      return;
+    }
+
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
+    io.observe(stage);
+
+    let raf = 0;
+    let elapsed = 0;
+    let last = performance.now();
+    const startAt = last + START_DELAY_MS;
+    const ease = (t: number) => 0.5 - Math.cos(Math.PI * t) / 2;
+
+    const tick = (now: number) => {
+      raf = requestAnimationFrame(tick);
+      const dt = now - last;
+      last = now;
+      if (now < startAt || !visible || document.hidden) return;
+      elapsed += dt;
+      const leg = elapsed / 1000 / LEG_SECONDS;
+      const forward = Math.floor(leg) % 2 === 0;
+      const t = leg % 1;
+      const along = forward ? ease(t) : 1 - ease(t);
+      place(along * len, forward, Math.sin(now / 260) * 5);
+      bird.classList.add("is-flying");
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      io.disconnect();
+    };
+  }, [inView]);
 
   return (
     <section id="avonturen" className="album">
@@ -120,11 +187,8 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
             ) : null,
           )}
 
-          <path className="route" d={route} mask="url(#route-reveal)" />
+          <path ref={routeRef} className="route" d={route} mask="url(#route-reveal)" />
 
-          <path className="route-plane" d="M -14 -9 L 16 0 L -14 9 L -7 0 Z">
-            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto" path={route} />
-          </path>
 
           {friends.map((f, i) => {
             if (!f.pin) return null;
@@ -138,6 +202,18 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
               </g>
             );
           })}
+          <g ref={birdRef} className="route-bird">
+            {/* scaled up on phones via CSS, around the bird's anchor point */}
+            <g className="route-bird-art">
+              <image
+                href="/images/tsippo-flying.webp"
+                x={-BIRD_W / 2}
+                y={-BIRD_H * 0.62}
+                width={BIRD_W}
+                height={BIRD_H}
+              />
+            </g>
+          </g>
         </svg>
         </div>
 
