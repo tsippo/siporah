@@ -15,14 +15,14 @@ export type Edition = {
 export const EDITIONS: Record<Locale, Edition> = {
   nl: {
     url: "https://www.amazon.nl",
-    cover: null,
-    title: "Tsippo ontdekt de wereld",
-    author: "Lorem Ipsum",
+    cover: "/images/covers/nl.jpg",
+    title: "Tsippo – Het eigenwijze kompas",
+    author: "Mickey ten Have",
   },
   en: {
     url: "https://www.amazon.com",
-    cover: null,
-    title: "Tsippo explores the world",
-    author: "Lorem Ipsum",
+    cover: "/images/covers/en.jpg",
+    title: "Tsippo – The wayward compass",
+    author: "Mickey ten Have",
   },
 };
