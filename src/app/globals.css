@@ -2108,3 +2108,115 @@ body {
     animation: none;
   }
 }
+
+/* =====================================================================
+   Privacy & cookies
+   ===================================================================== */
+.privacy {
+  position: relative;
+  max-width: 820px;
+  margin: -90px auto 0;
+  padding: 0 16px 120px;
+}
+.privacy-head {
+  position: relative;
+  text-align: center;
+}
+.privacy-head .about-eyebrow {
+  width: max-content;
+  margin: 0 auto;
+}
+.privacy h1 {
+  margin: 4px 0 14px;
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: clamp(36px, 4.4vw, 58px);
+  line-height: 1.1;
+  color: var(--red);
+}
+.privacy-lead {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.privacy-tsippo {
+  position: absolute;
+  left: -120px;
+  top: 40px;
+  width: 120px;
+  height: auto;
+  rotate: -5deg;
+}
+/* a sheet of letter paper */
+.privacy-sheet {
+  margin-top: 48px;
+  padding: 40px 48px 36px;
+  background: #fffaf0;
+  border: 8px solid #fff;
+  box-shadow: 0 14px 34px rgba(60, 40, 20, 0.16);
+  rotate: -0.4deg;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.privacy-sheet section + section {
+  margin-top: 26px;
+}
+.privacy-sheet h2 {
+  margin: 0 0 4px;
+  font-family: var(--hand);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--red);
+}
+.privacy-sheet p {
+  margin: 0;
+}
+.privacy-sheet a {
+  color: var(--red);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+.privacy-contact {
+  margin-top: 32px !important;
+  font-weight: 700;
+}
+.privacy-updated {
+  margin-top: 8px !important;
+  font-size: 14px;
+  color: #6f5f50;
+}
+.footer-privacy {
+  font-size: 14px;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+.footer-privacy:hover {
+  color: var(--moon);
+}
+
+@media (max-width: 1100px) {
+  .privacy-tsippo {
+    display: none;
+  }
+}
+@media (max-width: 820px) {
+  .privacy {
+    margin-top: -40px;
+    padding-bottom: 72px;
+  }
+  .privacy-lead {
+    font-size: 17px;
+  }
+  .privacy-sheet {
+    margin-top: 32px;
+    padding: 28px 22px 26px;
+    rotate: 0deg;
+    font-size: 16px;
+  }
+  .privacy-sheet h2 {
+    font-size: 26px;
+  }
+}

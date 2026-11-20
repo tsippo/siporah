@@ -57,3 +57,17 @@ describe("friends album", () => {
     expect(path.trimEnd().endsWith(`${pins.at(-1)!.x} ${pins.at(-1)!.y}`)).toBe(true);
   });
 });
+
+describe("privacy page", () => {
+  it.each([
+    ["nl", nl],
+    ["en", en],
+  ])("%s names everything we store, so the policy stays true", async (_, dict) => {
+    const { SPLASH_KEY } = await import("@/lib/splash");
+    const { LOCALE_COOKIE } = await import("@/lib/locale-cookie");
+    const text = JSON.stringify(dict.privacy.sections);
+    expect(text).toContain(SPLASH_KEY);
+    expect(text).toContain(LOCALE_COOKIE);
+    expect(text).toContain("{email}");
+  });
+});

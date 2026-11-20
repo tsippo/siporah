@@ -60,6 +60,9 @@ export default function SiteFooter({ lang, t, nav }: Props) {
 
       <div className="footer-bottom">
         <p>{t.copyright}</p>
+        <Link href={`/${lang}/privacy`} className="footer-privacy">
+          {t.privacy}
+        </Link>
         <p className="footer-made">{t.madeWith}</p>
         <a href="#" className="footer-top">
           {t.backToTop} <span aria-hidden="true">↑</span>

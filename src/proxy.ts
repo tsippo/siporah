@@ -1,10 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { LOCALE_COOKIE } from "@/lib/locale-cookie";
 
 const locales = ["nl", "en"];
 const defaultLocale = "nl";
 
-// Pick English only when the browser ranks it above Dutch; otherwise Dutch.
+// 1. The language the visitor picked before (cookie from the NL/EN switch).
+// 2. Otherwise English only when the browser ranks it above Dutch; else Dutch.
 function getLocale(request: NextRequest) {
+  const saved = request.cookies.get(LOCALE_COOKIE)?.value;
+  if (saved && locales.includes(saved)) return saved;
+
   const header = request.headers.get("accept-language") ?? "";
   const ranked = header
     .split(",")
