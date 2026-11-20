@@ -280,6 +280,7 @@ body {
    Desktop positions use a 1536 × 1140 stage (see friends-data.ts).
    ===================================================================== */
 :root {
+  font-synthesis: none;
   --paper: #fbf4e6;
   --paper-line: #efe2c8;
   --hand: var(--font-hand), "Comic Sans MS", cursive;
@@ -348,8 +349,8 @@ body {
 }
 .album-bubble {
   position: absolute;
-  left: calc(2% + 128px);
-  top: 64px;
+  left: calc(2% + 150px);
+  top: 22px;
   padding: 8px 16px;
   border: 2px solid var(--ink);
   border-radius: 20px 20px 20px 4px;
@@ -430,6 +431,16 @@ body {
 }
 .is-in-view .route-draw {
   stroke-dashoffset: 0;
+}
+/* own layer above the polaroids, so Tsippo flies over them */
+.album-flyer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
 }
 .route-bird {
   opacity: 0;
@@ -820,12 +831,11 @@ body {
 /* the pencil Tsippo peeks out from behind the photo */
 .author-tsippo {
   position: absolute;
-  left: -84px;
+  left: -112px;
   bottom: -34px;
   width: 130px;
   height: auto;
   rotate: -4deg;
-  transform: scaleX(-1); /* face the photo */
 }
 
 /* ---------- text ---------- */
@@ -947,8 +957,11 @@ body {
     margin: 0 auto;
   }
   .author-tsippo {
-    left: -36px;
+    left: -52px;
     width: 96px;
+  }
+  .author figcaption {
+    padding-left: 34px; /* room for Tsippo's camera */
   }
   .about-text {
     padding-top: 48px;
@@ -1015,7 +1028,7 @@ body {
 
 .footer-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) auto;
   gap: 48px;
   max-width: 1120px;
   margin: 0 auto;
@@ -1064,6 +1077,30 @@ body {
   outline: 2px solid var(--moon);
   outline-offset: 4px;
   border-radius: 2px;
+}
+
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-instagram svg {
+  width: 20px;
+  height: 20px;
+}
+.footer-qr {
+  align-self: start;
+  width: 116px;
+  padding: 8px;
+  border-radius: 14px;
+  background: #fff;
+  rotate: 3deg;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.footer-qr img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .footer-bottom {
@@ -1121,6 +1158,9 @@ body {
   }
   .footer-brand {
     grid-column: 1 / -1;
+  }
+  .footer-qr {
+    display: none;
   }
   .footer-logo {
     font-size: 38px;
