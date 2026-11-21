@@ -115,7 +115,8 @@
     "copyright": "© 2026 Mickey ten Have. All rights reserved.",
     "madeWith": "Made with love and a red backpack",
     "backToTop": "Back to top",
-    "credit": "Website made by Abdulrahman Sadek"
+    "credit": "Website made by Abdulrahman Sadek",
+    "privacy": "Privacy & cookies"
   },
   "book": {
     "eyebrow": "The book",
@@ -173,5 +174,65 @@
     "home": "Back home",
     "adventures": "See the adventures"
   },
-  "splash": "Packing my backpack…"
+  "splash": "Packing my backpack…",
+  "privacy": {
+    "metaTitle": "Privacy & cookies | Tsippo",
+    "metaDescription": "This website uses just one cookie, to remember your language, and does not track you. Read exactly what does and doesn't happen.",
+    "eyebrow": "Privacy & cookies",
+    "title": "One cookie, no snooping",
+    "lead": "Tsippo loves to travel, not to snoop around. This website doesn't track you, shows no ads and shares nothing with anyone.",
+    "updated": "Last updated: November 2026",
+    "sections": [
+      {
+        "title": "Cookies",
+        "body": [
+          "This website uses just one cookie: tsippo-lang. When you pick a language with the NL or EN button, this cookie remembers your choice for a year, so the website opens in your language next time. It only contains \"nl\" or \"en\" and is shared with no one.",
+          "There are no statistics or advertising cookies, no Google Analytics and no tracking by Facebook, Instagram or anyone else. A language cookie needs no consent, which is why you don't see a cookie banner. Want it gone? Delete it in your browser settings; the website keeps working as normal."
+        ]
+      },
+      {
+        "title": "What is stored on your device",
+        "body": [
+          "After the opening screen with flying Tsippo, we keep one tiny note in your browser (\"sessionStorage\", named tsippo-splash-seen), so you only see that screen once per visit. It contains nothing personal, is never sent anywhere and disappears by itself when you close the browser."
+        ]
+      },
+      {
+        "title": "Fonts and pictures",
+        "body": [
+          "All fonts, drawings and photos come from this website itself. Your browser does not contact Google or any other service to show the page."
+        ]
+      },
+      {
+        "title": "If you send an email",
+        "body": [
+          "If you write to {email}, we only use your email address and message to reply to you. We share them with no one and delete them when they are no longer needed."
+        ]
+      },
+      {
+        "title": "Amazon and Instagram",
+        "body": [
+          "When you click a button to buy the book or our Instagram link, you go to the Amazon or Instagram website. Only there do their own privacy and cookie rules apply. While you are on this website, nothing of theirs is loaded."
+        ]
+      },
+      {
+        "title": "Hosting",
+        "body": [
+          "As with any website, the company that hosts it processes technical data, such as your IP address, to deliver the pages to you and keep the website secure. We don't use that data to track you."
+        ]
+      },
+      {
+        "title": "Children",
+        "body": [
+          "This website is made for children and their parents. We never ask children for any information and collect nothing about them."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "body": [
+          "Want to know what data we have about you, or have it corrected or deleted? Email {email}. If you are unhappy with how we handle your data, you can complain to the Dutch Data Protection Authority (Autoriteit Persoonsgegevens)."
+        ]
+      }
+    ],
+    "contact": "Questions? Email Mickey ten Have at"
+  }
 }

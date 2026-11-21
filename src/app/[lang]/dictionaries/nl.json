@@ -115,7 +115,8 @@
     "copyright": "© 2026 Mickey ten Have. Alle rechten voorbehouden.",
     "madeWith": "Gemaakt met liefde en een rode rugzak",
     "backToTop": "Terug naar boven",
-    "credit": "Website gemaakt door Abdulrahman Sadek"
+    "credit": "Website gemaakt door Abdulrahman Sadek",
+    "privacy": "Privacy & cookies"
   },
   "book": {
     "eyebrow": "Het boek",
@@ -173,5 +174,65 @@
     "home": "Terug naar huis",
     "adventures": "Bekijk de avonturen"
   },
-  "splash": "Even de rugzak inpakken…"
+  "splash": "Even de rugzak inpakken…",
+  "privacy": {
+    "metaTitle": "Privacy & cookies | Tsippo",
+    "metaDescription": "Deze website gebruikt maar één cookie, om je taal te onthouden, en volgt je niet. Lees hier precies wat er wel en niet gebeurt.",
+    "eyebrow": "Privacy & cookies",
+    "title": "Eén cookie, geen gluurders",
+    "lead": "Tsippo houdt van reizen, niet van rondsnuffelen. Deze website volgt je niet, laat geen reclame zien en deelt niets met anderen.",
+    "updated": "Laatst bijgewerkt: november 2026",
+    "sections": [
+      {
+        "title": "Cookies",
+        "body": [
+          "Deze website gebruikt maar één cookie: tsippo-lang. Kies je met de knop NL of EN een taal, dan onthoudt dit cookie je keuze een jaar lang, zodat de website de volgende keer meteen in jouw taal opent. Er staat alleen \"nl\" of \"en\" in en het wordt met niemand gedeeld.",
+          "Er zijn geen statistieken- of advertentiecookies, geen Google Analytics en geen tracking van Facebook, Instagram of andere partijen. Een taalcookie heeft geen toestemming nodig, daarom zie je geen cookiemelding. Wil je het cookie kwijt? Verwijder het in de instellingen van je browser; de website werkt dan gewoon verder."
+        ]
+      },
+      {
+        "title": "Wat er wel op je apparaat komt",
+        "body": [
+          "Na het openingsscherm met de vliegende Tsippo bewaren we één klein briefje in je browser (\"sessionStorage\", met de naam tsippo-splash-seen). Zo zie je dat scherm maar één keer per bezoek. Er staat niets persoonlijks in, het wordt nergens heen gestuurd en het verdwijnt vanzelf als je de browser sluit."
+        ]
+      },
+      {
+        "title": "Lettertypes en plaatjes",
+        "body": [
+          "Alle lettertypes, tekeningen en foto's komen van deze website zelf. Je browser maakt dus geen contact met Google of andere diensten om de pagina te laten zien."
+        ]
+      },
+      {
+        "title": "Als je een e-mail stuurt",
+        "body": [
+          "Stuur je een bericht naar {email}? Dan gebruiken we je e-mailadres en je bericht alleen om je te antwoorden. We delen ze met niemand en verwijderen ze als ze niet meer nodig zijn."
+        ]
+      },
+      {
+        "title": "Amazon en Instagram",
+        "body": [
+          "Klik je op een knop om het boek te kopen of op onze Instagram-link, dan ga je naar de website van Amazon of Instagram. Pas daar gelden hun eigen privacy- en cookieregels. Zolang je op deze website bent, wordt er niets van hen geladen."
+        ]
+      },
+      {
+        "title": "Hosting",
+        "body": [
+          "Zoals bij elke website verwerkt het bedrijf dat de website online zet technische gegevens, zoals je IP-adres, om de pagina's bij je af te leveren en de website veilig te houden. Wij gebruiken die gegevens niet om je te volgen."
+        ]
+      },
+      {
+        "title": "Kinderen",
+        "body": [
+          "Deze website is gemaakt voor kinderen en hun ouders. We vragen kinderen nooit om gegevens en verzamelen niets over hen."
+        ]
+      },
+      {
+        "title": "Jouw rechten",
+        "body": [
+          "Wil je weten welke gegevens we van je hebben, of wil je ze laten aanpassen of verwijderen? Mail naar {email}. Ben je niet tevreden over hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens."
+        ]
+      }
+    ],
+    "contact": "Vragen? Mail Mickey ten Have via"
+  }
 }

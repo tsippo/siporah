@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LangSwitch from "./LangSwitch";
 import { locales, type Dictionary, type Locale } from "@/app/[lang]/dictionaries";
 
 type Props = {
@@ -29,21 +30,7 @@ export default function SiteHeader({ lang, nav, path = "" }: Props) {
         >
           {nav.buy}
         </Link>
-        <span className="lang-switch" aria-label={nav.switchLabel}>
-          {/* Plain <a>, not <Link>: switching language reloads the page so the
-              root layout (<html lang>, the head script) comes fresh from the server.
-              Re-rendering it in the browser makes React warn about that script. */}
-          {locales.map((l) => (
-            <a
-              key={l}
-              href={`/${l}${path}`}
-              hrefLang={l}
-              aria-current={l === lang ? "true" : undefined}
-            >
-              {l.toUpperCase()}
-            </a>
-          ))}
-        </span>
+        <LangSwitch lang={lang} locales={locales} path={path} label={nav.switchLabel} />
       </nav>
     </header>
   );

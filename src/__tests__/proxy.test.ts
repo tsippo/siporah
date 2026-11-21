@@ -3,9 +3,12 @@ import { describe, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { proxy } from "@/proxy";
 
-const request = (path: string, acceptLanguage?: string) =>
+const request = (path: string, acceptLanguage?: string, cookie?: string) =>
   new NextRequest(`https://tsippo.test${path}`, {
-    headers: acceptLanguage ? { "accept-language": acceptLanguage } : {},
+    headers: {
+      ...(acceptLanguage ? { "accept-language": acceptLanguage } : {}),
+      ...(cookie ? { cookie } : {}),
+    },
   });
 
 const redirectTarget = (res: Response | undefined) => res?.headers.get("location");
@@ -43,5 +46,20 @@ describe("proxy (language redirect)", () => {
   it("does not mistake paths that only start with a locale", () => {
     // "/english" is not "/en"
     expect(redirectTarget(proxy(request("/english")))).toBe("https://tsippo.test/nl/english");
+  });
+
+  it("remembers the language the visitor picked, over the browser language", () => {
+    expect(redirectTarget(proxy(request("/", "nl-NL", "tsippo-lang=en")))).toBe(
+      "https://tsippo.test/en",
+    );
+    expect(redirectTarget(proxy(request("/shop", "en-GB", "tsippo-lang=nl")))).toBe(
+      "https://tsippo.test/nl/shop",
+    );
+  });
+
+  it("ignores a cookie with an unknown language", () => {
+    expect(redirectTarget(proxy(request("/", "en-GB", "tsippo-lang=xx")))).toBe(
+      "https://tsippo.test/en",
+    );
   });
 });
