@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import FooterCredit from "./FooterCredit";
 import type { Dictionary, Locale } from "@/app/[lang]/dictionaries";
+
+const INSTAGRAM_URL = "https://www.instagram.com/tsippo.books/";
 
 type Props = { lang: Locale; t: Dictionary["footer"]; nav: Dictionary["nav"] };
 
@@ -33,6 +36,25 @@ export default function SiteFooter({ lang, t, nav }: Props) {
         <div className="footer-col">
           <h2>{t.contactTitle}</h2>
           <a href={`mailto:${t.email}`}>{t.email}</a>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-instagram"
+            aria-label={`${t.instagram}: ${t.instagramLabel}`}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" strokeWidth="2" />
+              <circle cx="17.4" cy="6.6" r="1.3" fill="currentColor" />
+            </svg>
+            {t.instagram}
+          </a>
+        </div>
+
+        {/* to scan with a phone, so only shown on bigger screens */}
+        <div className="footer-qr">
+          <Image src="/images/instagram-qr.png" alt={t.qrAlt} width={687} height={833} sizes="116px" />
         </div>
       </div>
 
@@ -44,7 +66,7 @@ export default function SiteFooter({ lang, t, nav }: Props) {
         </a>
       </div>
 
-      <p className="footer-credit">{t.credit}</p>
+      <FooterCredit text={t.credit} />
     </footer>
   );
 }

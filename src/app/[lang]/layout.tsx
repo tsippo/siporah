@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Caveat, Noto_Sans, Noto_Serif } from "next/font/google";
+import { Noto_Sans, Noto_Serif, Patrick_Hand } from "next/font/google";
 import SiteFooter from "@/components/SiteFooter";
 import FloatingBuy from "@/components/FloatingBuy";
 import Splash from "@/components/Splash";
@@ -15,10 +15,11 @@ const serif = Noto_Serif({
   weight: ["700", "800"],
 });
 
-const hand = Caveat({
+// upright handwriting (Caveat slanted like italics)
+const hand = Patrick_Hand({
   variable: "--font-hand",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["400"],
   // not used in the hero, so it should not compete with the hero image
   preload: false,
 });

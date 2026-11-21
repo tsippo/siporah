@@ -202,6 +202,14 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
               </g>
             );
           })}
+        </svg>
+
+        {/* Tsippo gets his own layer on top, so he flies over the photos */}
+        <svg
+          className="album-flyer"
+          viewBox={`0 0 ${STAGE_W} ${STAGE_H}`}
+          aria-hidden="true"
+        >
           <g ref={birdRef} className="route-bird">
             {/* scaled up on phones via CSS, around the bird's anchor point */}
             <g className="route-bird-art">
