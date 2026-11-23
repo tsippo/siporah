@@ -11,7 +11,9 @@ const isDev = process.env.NODE_ENV === "development";
  * (no static pages); this site has no visitor input to inject into, so the
  * static variant from the Next.js CSP guide is the right trade-off.
  */
-function csp(extra: { connect?: string; img?: string; style?: string; font?: string } = {}) {
+function csp(
+  extra: { connect?: string; img?: string; style?: string; font?: string; form?: string } = {},
+) {
   return [
     "default-src 'self'",
     `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
@@ -21,7 +23,7 @@ function csp(extra: { connect?: string; img?: string; style?: string; font?: str
     `connect-src 'self'${extra.connect ? ` ${extra.connect}` : ""}`,
     "object-src 'none'",
     "base-uri 'self'",
-    "form-action 'self'",
+    `form-action 'self'${extra.form ? ` ${extra.form}` : ""}`,
     "frame-ancestors 'none'",
     ...(isDev ? [] : ["upgrade-insecure-requests"]),
   ].join("; ");
@@ -50,6 +52,10 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   // don't advertise "X-Powered-By: Next.js" to attackers
   poweredByHeader: false,
+  // The content editor in GitHub mode moves you to 127.0.0.1 (needed for the
+  // GitHub login); let the dev server serve its dev tools there too.
+  // Development only; has no effect on the live site.
+  allowedDevOrigins: ["127.0.0.1"],
   images: {
     // AVIF is smaller; browsers without AVIF support get WebP.
     formats: ["image/avif", "image/webp"],
@@ -79,6 +85,8 @@ const nextConfig: NextConfig = {
               img: "https://avatars.githubusercontent.com https://*.githubusercontent.com",
               style: "https://fonts.googleapis.com",
               font: "https://fonts.gstatic.com",
+              // the one-time setup posts a form to GitHub to create the GitHub App
+              form: "https://github.com",
             }),
           },
           { key: "X-Robots-Tag", value: "noindex, nofollow" },

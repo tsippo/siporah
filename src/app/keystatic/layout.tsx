@@ -9,8 +9,10 @@ export const metadata: Metadata = {
 // The content editor has its own root layout: it is not part of the site.
 export default function KeystaticLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
+    // suppressHydrationWarning: browser extensions (e.g. Grammarly) add attributes
+    // to <html>/<body> before React loads; that is not an error in the site
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <KeystaticApp />
         {children}
       </body>
