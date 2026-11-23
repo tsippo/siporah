@@ -48,6 +48,9 @@ The live site must already be on Vercel.
 
 ## Safety
 
+- The editor commits straight to `main`. Don't add branch rules that require a pull
+  request or status checks on `main`, or her saves will be refused
+  (see `docs/security.md`).
 - `src/__tests__/cms.test.ts` fails if a text on the site has no field in the editor
   (a missing field would be removed from the file on save). The text fields are
   generated from `nl.json`, so a new text is picked up automatically.

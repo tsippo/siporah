@@ -27,8 +27,13 @@ The code can't protect against a stolen password. These matter most:
 - [ ] **Vercel: two-factor authentication** (Account Settings → Authentication).
 - [ ] **Email account** behind GitHub/Vercel: 2FA too (whoever owns the email can
       reset the other passwords).
-- [ ] **GitHub repo → Settings → Branches → Add rule for `main`**: require a pull
-      request and the "Checks" status check before merging.
+- [ ] **Protect `main` (lightly)**: GitHub repo → Settings → Rules → Rulesets →
+      New branch ruleset → target `main` → turn on only **Restrict deletions** and
+      **Block force pushes**.
+      Do **not** turn on "Require a pull request" or "Require status checks": the
+      content editor saves the author's changes directly to `main`, and those rules
+      would refuse her saves. Code changes still go through pull requests with the
+      automatic checks by habit.
 - [ ] **GitHub repo → Settings → Code security**: turn on Dependabot alerts and
       security updates (and secret scanning / push protection if offered).
 - [ ] **Keep the repo private**, and only give **Write** access to people who edit.
