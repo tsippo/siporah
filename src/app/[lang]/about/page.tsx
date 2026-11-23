@@ -3,11 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
+import { AUTHOR_PHOTO } from "@/lib/book";
 import { getDictionary, hasLocale } from "../dictionaries";
 
-// Put the author's photo in public/images/ and set its path here,
-// e.g. "/images/author.jpg". While this is null, a placeholder is shown.
-const AUTHOR_PHOTO: string | null = null;
 
 export async function generateMetadata({
   params,

@@ -1,0 +1,17 @@
+{
+  "authorPhoto": null,
+  "editions": {
+    "nl": {
+      "url": "https://www.amazon.nl",
+      "title": "Tsippo – Het eigenwijze kompas",
+      "author": "Mickey ten Have",
+      "cover": "/images/covers/nl/cover.jpg"
+    },
+    "en": {
+      "url": "https://www.amazon.com",
+      "title": "Tsippo – The wayward compass",
+      "author": "Mickey ten Have",
+      "cover": "/images/covers/en/cover.jpg"
+    }
+  }
+}

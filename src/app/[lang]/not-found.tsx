@@ -6,7 +6,8 @@ import { defaultLocale, getDictionary, hasLocale } from "./dictionaries";
 
 export default async function NotFound() {
   const raw = await rootLang();
-  const lang = hasLocale(raw) ? raw : defaultLocale;
+  // undefined outside the [lang] layout (e.g. under /keystatic)
+  const lang = raw && hasLocale(raw) ? raw : defaultLocale;
   const t = await getDictionary(lang);
   const n = t.notFound;
 
