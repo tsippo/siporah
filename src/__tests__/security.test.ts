@@ -42,6 +42,9 @@ describe("security headers", () => {
     const h = await headersFor("/keystatic");
     expect(h["Content-Security-Policy"]).toContain("connect-src 'self' https://api.github.com");
     expect(h["X-Robots-Tag"]).toBe("noindex, nofollow");
+    // its one-time setup sends a form to GitHub; the website itself may not
+    expect(h["Content-Security-Policy"]).toContain("form-action 'self' https://github.com");
+    expect((await headersFor("/nl"))["Content-Security-Policy"]).toContain("form-action 'self';");
   });
 
   it("does not advertise the framework", () => {
