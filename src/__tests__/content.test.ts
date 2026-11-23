@@ -71,3 +71,27 @@ describe("privacy page", () => {
     expect(text).toContain("{email}");
   });
 });
+
+describe("site address (sharing previews, sitemap)", () => {
+  it("prefers the address set by hand", async () => {
+    const { siteUrl } = await import("@/lib/site");
+    expect(
+      siteUrl({ NEXT_PUBLIC_SITE_URL: "https://tsippo.nl/", VERCEL_PROJECT_PRODUCTION_URL: "x.vercel.app" }),
+    ).toBe("https://tsippo.nl");
+  });
+
+  it("falls back to the Vercel production domain, never localhost on Vercel", async () => {
+    const { siteUrl } = await import("@/lib/site");
+    expect(siteUrl({ VERCEL_PROJECT_PRODUCTION_URL: "siporah.vercel.app" })).toBe(
+      "https://siporah.vercel.app",
+    );
+    expect(siteUrl({ NEXT_PUBLIC_SITE_URL: "", VERCEL_PROJECT_PRODUCTION_URL: "siporah.vercel.app" })).toBe(
+      "https://siporah.vercel.app",
+    );
+  });
+
+  it("uses localhost on your own computer", async () => {
+    const { siteUrl } = await import("@/lib/site");
+    expect(siteUrl({})).toBe("http://localhost:3000");
+  });
+});
