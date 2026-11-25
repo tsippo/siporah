@@ -90,6 +90,13 @@ describe("site address (sharing previews, sitemap)", () => {
     );
   });
 
+  it("uses the real domain on the live site, not the vercel.app address", async () => {
+    const { siteUrl } = await import("@/lib/site");
+    expect(
+      siteUrl({ VERCEL_ENV: "production", VERCEL_PROJECT_PRODUCTION_URL: "siporah-beta.vercel.app" }),
+    ).toBe("https://www.tsippo.com");
+  });
+
   it("uses localhost on your own computer", async () => {
     const { siteUrl } = await import("@/lib/site");
     expect(siteUrl({})).toBe("http://localhost:3000");
