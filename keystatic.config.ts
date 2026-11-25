@@ -117,7 +117,7 @@ const edition = (name: string, slug: string) =>
 
 export default config({
   storage: useGitHub
-    ? { kind: "github", repo: { owner: "Abdulrahmansadek", name: "siporah" } }
+    ? { kind: "github", repo: { owner: "tsippo", name: "siporah" } }
     : { kind: "local" },
   ui: {
     brand: { name: "Tsippo" },
