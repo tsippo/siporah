@@ -3,7 +3,15 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import nl from "@/app/[lang]/dictionaries/nl.json";
 import en from "@/app/[lang]/dictionaries/en.json";
-import { flightPath, friends, STAGE_H, STAGE_W } from "@/components/friends-data";
+import {
+  flightPath,
+  friends,
+  PHOTO_W,
+  STAGE_H,
+  STAGE_W,
+  stopNumber,
+  stops,
+} from "@/components/friends-data";
 import { EDITIONS } from "@/lib/book";
 import { locales } from "@/app/[lang]/dictionaries";
 
@@ -34,27 +42,56 @@ describe("friends album", () => {
     }
   });
 
-  it("puts every pin and photo on the stage", () => {
+  it("puts every stop and photo on the stage", () => {
+    for (const p of stops) {
+      expect(p.x).toBeGreaterThanOrEqual(0);
+      expect(p.x).toBeLessThanOrEqual(STAGE_W);
+      expect(p.y).toBeGreaterThanOrEqual(0);
+      expect(p.y).toBeLessThanOrEqual(STAGE_H);
+    }
     for (const f of friends) {
-      if (f.pin) {
-        expect(f.pin.x).toBeGreaterThanOrEqual(0);
-        expect(f.pin.x).toBeLessThanOrEqual(STAGE_W);
-        expect(f.pin.y).toBeGreaterThanOrEqual(0);
-        expect(f.pin.y).toBeLessThanOrEqual(STAGE_H);
-      }
       expect(f.photo.x).toBeGreaterThanOrEqual(0);
-      expect(f.photo.x).toBeLessThan(STAGE_W);
+      expect(f.photo.x + PHOTO_W).toBeLessThanOrEqual(STAGE_W);
     }
   });
 
-  it("draws the route through every pin, in travel order", () => {
-    const pins = friends.flatMap((f) => (f.pin ? [f.pin] : []));
+  it("flies the route in the agreed order", () => {
+    expect(stops.map((s) => s.id)).toEqual([
+      "norway", "denmark", "amsterdam", "london", "berlin", "vienna", "budapest",
+      "greece", "rome", "switzerland", "paris", "portugal", "sevilla", "tarifa", "merjaZerga",
+    ]);
+  });
+
+  it("names every stop in both languages and links friends to real stops", () => {
+    for (const dict of [nl, en]) {
+      for (const p of stops) expect(dict.friends.stops[p.id], p.id).toBeTruthy();
+    }
+    for (const f of friends) if (f.stop) expect(stopNumber(f.stop)).toBeGreaterThan(0);
+  });
+
+  it("no photo covers a pin", () => {
+    // a polaroid is about PHOTO_W wide and 300 tall (with the tape); keep pins clear of it
+    const H = 300;
+    const PAD = 20;
+    for (const f of friends) {
+      for (const p of stops) {
+        const inside =
+          p.x > f.photo.x - PAD &&
+          p.x < f.photo.x + PHOTO_W + PAD &&
+          p.y > f.photo.y - PAD &&
+          p.y < f.photo.y + H + PAD;
+        expect(inside, `${f.id} photo covers the ${p.id} pin`).toBe(false);
+      }
+    }
+  });
+
+  it("draws the route through every stop, in travel order", () => {
     const path = flightPath();
-    expect(path.startsWith(`M ${pins[0].x} ${pins[0].y}`)).toBe(true);
-    expect(path.match(/Q /g)).toHaveLength(pins.length - 1);
-    for (const p of pins.slice(1)) expect(path).toContain(` ${p.x} ${p.y}`);
+    expect(path.startsWith(`M ${stops[0].x} ${stops[0].y}`)).toBe(true);
+    expect(path.match(/Q /g)).toHaveLength(stops.length - 1);
+    for (const p of stops.slice(1)) expect(path).toContain(` ${p.x} ${p.y}`);
     expect(path).not.toContain("NaN");
-    expect(path.trimEnd().endsWith(`${pins.at(-1)!.x} ${pins.at(-1)!.y}`)).toBe(true);
+    expect(path.trimEnd().endsWith(`${stops.at(-1)!.x} ${stops.at(-1)!.y}`)).toBe(true);
   });
 });
 

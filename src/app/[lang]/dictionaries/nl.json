@@ -70,7 +70,24 @@
         "alt": "Tsippo en een meisje met vlechten samen op een skateboard"
       }
     },
-    "mapAlt": "Een geschilderde kaart van Europa met bekende gebouwen, zoals de Big Ben, de Eiffeltoren en het Colosseum"
+    "mapAlt": "Een geschilderde kaart van Europa met bekende gebouwen, zoals de Big Ben, de Eiffeltoren en het Colosseum",
+    "stops": {
+      "norway": "Noorwegen",
+      "denmark": "Denemarken",
+      "amsterdam": "Amsterdam",
+      "london": "Londen",
+      "berlin": "Berlijn",
+      "vienna": "Wenen",
+      "budapest": "Boedapest, Hongarije",
+      "greece": "Griekenland",
+      "rome": "Rome",
+      "switzerland": "Zwitserland",
+      "paris": "Parijs",
+      "portugal": "Portugal",
+      "sevilla": "Sevilla, Spanje",
+      "tarifa": "Tarifa",
+      "merjaZerga": "Merja Zerga, Marokko"
+    }
   },
   "about": {
     "metaTitle": "Wie ben ik? | Tsippo",

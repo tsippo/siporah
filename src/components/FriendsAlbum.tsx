@@ -9,7 +9,10 @@ import {
   PHOTO_W,
   STAGE_H,
   STAGE_W,
+  stopNumber,
+  stops,
   type FriendId,
+  type StopId,
 } from "./friends-data";
 
 type Item = { caption: string; greeting: string; text: string; alt: string };
@@ -23,6 +26,8 @@ export type FriendsText = {
   signoff: string;
   mapAlt: string;
   items: Record<FriendId, Item>;
+  /** Place names on the route, shown when hovering a pin. */
+  stops: Record<StopId, string>;
 };
 
 const route = flightPath();
@@ -30,7 +35,7 @@ const route = flightPath();
 // Flying Tsippo on the route, in stage units
 const BIRD_W = 128;
 const BIRD_H = (BIRD_W * 300) / 360;
-const LEG_SECONDS = 15; // one trip along the route; then he flies back
+const LEG_SECONDS = 36; // one trip along the whole route; then he flies back
 const START_DELAY_MS = 3400; // wait until the route has drawn itself
 
 export default function FriendsAlbum({ t }: { t: FriendsText }) {
@@ -175,33 +180,33 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
           </defs>
 
           {/* strings from each pin up to the tape on its photo */}
-          {friends.map((f) =>
-            f.pin ? (
+          {friends.map((f) => {
+            const pin = f.stop && stops.find((s) => s.id === f.stop);
+            if (!pin) return null;
+            return (
               <path
                 key={f.id}
                 className="album-string"
-                d={`M ${f.pin.x} ${f.pin.y} Q ${(f.pin.x + f.photo.x + PHOTO_W / 2) / 2} ${
-                  Math.max(f.pin.y, f.photo.y) + 30
+                d={`M ${pin.x} ${pin.y} Q ${(pin.x + f.photo.x + PHOTO_W / 2) / 2} ${
+                  Math.max(pin.y, f.photo.y) + 30
                 } ${f.photo.x + PHOTO_W / 2} ${f.photo.y + 14}`}
               />
-            ) : null,
-          )}
+            );
+          })}
 
           <path ref={routeRef} className="route" d={route} mask="url(#route-reveal)" />
 
 
-          {friends.map((f, i) => {
-            if (!f.pin) return null;
-            return (
-              <g key={f.id} className="album-pin" transform={`translate(${f.pin.x} ${f.pin.y})`}>
-                <circle className="pin-pulse" r={18} />
-                <circle className="pin-dot" r={15} />
-                <text className="pin-num" y={5.5}>
-                  {i + 1}
-                </text>
-              </g>
-            );
-          })}
+          {stops.map((s, i) => (
+            <g key={s.id} className="album-pin" transform={`translate(${s.x} ${s.y})`}>
+              <title>{`${i + 1}. ${t.stops[s.id]}`}</title>
+              <circle className="pin-pulse" r={18} />
+              <circle className="pin-dot" r={15} />
+              <text className="pin-num" y={5.5}>
+                {i + 1}
+              </text>
+            </g>
+          ))}
         </svg>
 
         {/* Tsippo gets his own layer on top, so he flies over the photos */}
@@ -262,7 +267,7 @@ export default function FriendsAlbum({ t }: { t: FriendsText }) {
                         />
                       </span>
                       <span className="photo-caption">
-                        {f.pin && <span className="photo-num">{i + 1}</span>}
+                        {f.stop && <span className="photo-num">{stopNumber(f.stop)}</span>}
                         {item.caption}
                       </span>
                     </span>
