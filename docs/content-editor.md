@@ -48,6 +48,9 @@ The live site must already be on Vercel.
 
 ## Safety
 
+- The author should always stay on the `main` branch in the editor's branch menu (top
+  left). Saves on another branch don't go live; the editor then offers a pull request.
+  If that happens: merge that pull request, or close it if the change isn't wanted.
 - The editor commits straight to `main`. Don't add branch rules that require a pull
   request or status checks on `main`, or her saves will be refused
   (see `docs/security.md`).
@@ -62,7 +65,11 @@ The live site must already be on Vercel.
 
 # Handleiding voor Mickey
 
+> **De belangrijkste regel:** laat het menuutje **linksboven** altijd op **main** staan
+> en klik nooit op **New branch**. Dan komt alles wat je bewaart direct op de website.
+
 1. Ga naar **`<website>/keystatic`** en klik **Log in with GitHub**.
+   Linksboven staat **main**. Zo hoort het; daar hoef je niets aan te doen.
 2. Links zie je:
    - **Texts – Nederlands** en **Texts – English**: alle teksten van de website,
      per onderdeel (bovenaan de homepage, het fotoalbum, het boek, Wie ben ik?, …).
@@ -75,3 +82,6 @@ Tips:
 - Foto's: kies een bestand met **Choose file**. Omslag rechtop (ongeveer 2:3),
   jouw foto rechtop (ongeveer 3:4).
 - Iets misgegaan? Geen zorgen: elke wijziging wordt bewaard en kan teruggezet worden.
+- Zie je ineens **Create pull request**, of staat je wijziging na een paar minuten nog
+  niet op de website? Dan staat het menuutje linksboven waarschijnlijk niet op **main**.
+  Bewaar niets meer en laat het even weten; het is in een paar tellen opgelost.
