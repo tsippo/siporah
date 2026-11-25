@@ -81,7 +81,8 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value: csp({
-              connect: "https://api.github.com",
+              // public repo: the editor loads files from raw.githubusercontent.com
+              connect: "https://api.github.com https://raw.githubusercontent.com",
               img: "https://avatars.githubusercontent.com https://*.githubusercontent.com",
               style: "https://fonts.googleapis.com",
               font: "https://fonts.gstatic.com",
