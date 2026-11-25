@@ -560,6 +560,9 @@ body {
   align-items: center;
   justify-content: center;
   aspect-ratio: 5 / 4;
+  /* keep the 5:4 shape even for upright pictures (they are scaled to fit) */
+  min-height: 0;
+  overflow: hidden;
   padding: 6%;
   background: var(--tint);
 }

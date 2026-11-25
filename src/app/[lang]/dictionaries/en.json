@@ -70,7 +70,24 @@
         "alt": "Tsippo and a girl with braids riding a skateboard together"
       }
     },
-    "mapAlt": "A painted map of Europe with famous buildings such as Big Ben, the Eiffel Tower and the Colosseum"
+    "mapAlt": "A painted map of Europe with famous buildings such as Big Ben, the Eiffel Tower and the Colosseum",
+    "stops": {
+      "norway": "Norway",
+      "denmark": "Denmark",
+      "amsterdam": "Amsterdam",
+      "london": "London",
+      "berlin": "Berlin",
+      "vienna": "Vienna",
+      "budapest": "Budapest, Hungary",
+      "greece": "Greece",
+      "rome": "Rome",
+      "switzerland": "Switzerland",
+      "paris": "Paris",
+      "portugal": "Portugal",
+      "sevilla": "Seville, Spain",
+      "tarifa": "Tarifa",
+      "merjaZerga": "Merja Zerga, Morocco"
+    }
   },
   "about": {
     "metaTitle": "Who am I? | Tsippo",
